@@ -44,7 +44,7 @@ class Square():
         if type(val) is int:
             self.__height = val
         else:
-            self__height = 0
+            self.__height = 0
 
     def area_of_my_square(self):
         """ Area of the square """
@@ -52,7 +52,7 @@ class Square():
 
     def PermiterOfMySquare(self):
         """ Compute Perimeter """
-        return (self.__width * 2) + (self.__height * 2)
+        return 2 * (self.__width  + self.__height)
 
     def __str__(self):
         """ Pretty print """
@@ -76,4 +76,6 @@ if __name__ == "__main__":
 
     print()
 
-    print(Square(2, 3))
+    print(Square(['a','a'], 3))
+    print(Square(2, 3).area_of_my_square())
+    print(Square(2, 3).PermiterOfMySquare())
