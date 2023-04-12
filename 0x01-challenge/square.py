@@ -22,11 +22,12 @@ class Square():
 
     @property
     def width(self):
-        """ Property """
+        """ Getter """
         return self.__width
 
     @width.setter
     def width(self, val):
+        """ Setter """
         if type(val) is int:
             self.__width = val
         else:
@@ -34,11 +35,12 @@ class Square():
 
     @property
     def height(self):
-        """ Property """
+        """ Getter """
         return self.__height
 
     @height.setter
     def height(self, val):
+        """ Setter """
         if type(val) is int:
             self.__height = val
         else:
