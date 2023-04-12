@@ -12,8 +12,8 @@ class Square():
         """ Initializations """
         if args:
             try:
-                setattr(self, 'width', args[0])
-                setattr(self, 'height', args[1])
+                setattr(self, '__width', args[0])
+                setattr(self, '__height', args[1])
             except IndexError:
                 raise
         elif kwargs:
@@ -61,7 +61,7 @@ class Square():
 
 if __name__ == "__main__":
 
-    s = Square(width=12, height=9, asd="adsf")
+    s = Square(width=12, height=9)
     print(s)
     print(s.area_of_my_square())
     print(s.PermiterOfMySquare())
