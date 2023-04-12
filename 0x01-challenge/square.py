@@ -12,13 +12,13 @@ class Square():
         """ Initializations """
         if args:
             try:
-                setattr(self, '__width', args[0])
-                setattr(self, '__height', args[1])
+                self.width = args[0]
+                self.height = args[1]
             except IndexError:
-                raise
+                raise  # pass
         elif kwargs:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+            self.width = kwargs.get('width', 0)
+            self.height = kwargs.get('height', 0)
 
     @property
     def width(self):
@@ -70,3 +70,10 @@ if __name__ == "__main__":
     s2.width = 500
     print(s2)
     print(s2.area_of_my_square())
+
+    s3 = Square()
+    print(s3)
+
+    print()
+
+    print(Square(2, 3))
