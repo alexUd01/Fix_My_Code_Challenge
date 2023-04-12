@@ -5,6 +5,8 @@
 class Square():
     """ Square Class """
 
+    __width = 0
+    __height = 0
 
     def __init__(self, *args, **kwargs):
         """ Initializations """
@@ -27,9 +29,11 @@ class Square():
     def width(self, val):
         """ Setter """
         if type(val) is int:
+            if val < 0:
+                raise ValueError('width must be >= 0')
             self.__width = val
         else:
-            self.__width = 0
+            raise TypeError('width must be an integer')
 
     @property
     def height(self):
@@ -40,9 +44,11 @@ class Square():
     def height(self, val):
         """ Setter """
         if type(val) is int:
+            if val < 0:
+                raise ValueError('width must be >= 0')
             self.__height = val
         else:
-            self.__height = 0
+            raise TypeError('height must be an integer')
 
     def area_of_my_square(self):
         """ Area of the square """
@@ -64,7 +70,7 @@ if __name__ == "__main__":
     print(s.area_of_my_square())
     print(s.PermiterOfMySquare())
 
-    s2 = Square(1, True)
+    s2 = Square(1, -1)
     s2.width = 500
     print(s2)
     print(s2.area_of_my_square())
@@ -74,6 +80,6 @@ if __name__ == "__main__":
 
     print()
 
-    print(Square(['a','a'], 3))
-    print(Square(2, 3).area_of_my_square())
-    print(Square(2, 3).PermiterOfMySquare())
+    print(Square(4, 3))
+    print(Square(4, 3).area_of_my_square())
+    print(Square(4, 3).PermiterOfMySquare())
