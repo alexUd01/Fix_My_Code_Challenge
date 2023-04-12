@@ -2,51 +2,69 @@
 """ Square module: challenge """
 
 
-class square():
+class Square():
     """ Square Class """
-    width = 0
-    height = 0
+
+    __width = 0
+    __height = 0
 
     def __init__(self, *args, **kwargs):
         """ Initializations """
         if args:
             try:
-                if type(args[0]) is int:
-                    setattr(self, 'width', args[0])
-                else:
-                    setattr(self, 'width', 0)
-                if type(args[1]) is int:
-                    setattr(self, 'height', args[1])
-                else:
-                    setattr(self, 'height', 0)
+                setattr(self, 'width', args[0])
+                setattr(self, 'height', args[1])
             except IndexError:
                 raise
         elif kwargs:
             for key, value in kwargs.items():
-                if type(value) is int:
-                    setattr(self, key, value)
-                else:
-                    setattr(self, key, 0)
+                setattr(self, key, value)
+
+    @property
+    def width(self):
+        """ Property """
+        return self.__width
+
+    @width.setter
+    def width(self, val):
+        if type(val) is int:
+            self.__width = val
+        else:
+            self.__width = 0
+
+    @property
+    def height(self):
+        """ Property """
+        return self.__height
+
+    @height.setter
+    def height(self, val):
+        if type(val) is int:
+            self.__height = val
+        else:
+            self__height = 0
 
     def area_of_my_square(self):
         """ Area of the square """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def PermiterOfMySquare(self):
         """ Compute Perimeter """
-        return (self.width * 2) + (self.height * 2)
+        return (self.__width * 2) + (self.__height * 2)
 
     def __str__(self):
         """ Pretty print """
-        return "{}/{}".format(self.width, self.height)
+        return "{}/{}".format(self.__width, self.__height)
 
 
 if __name__ == "__main__":
 
-    s = square(width=12, height=9, asd="adsf")
+    s = Square(width=12, height=9, asd="adsf")
     print(s)
     print(s.area_of_my_square())
     print(s.PermiterOfMySquare())
 
-    s2 = square(1, True)
+    s2 = Square(1, True)
+    s2.width = 500
     print(s2)
+    print(s2.area_of_my_square())
